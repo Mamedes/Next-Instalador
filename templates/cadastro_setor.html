@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <br>
+    {% from "includes/_formhelpers.html" import render_field %}
+    <form action="" class="form" id="login-form" method="POST">
+        <h1 class="text-center text-black">SETOR</h1>
+        <div class_="form-control">
+            <label for="unidade">Unidade</label>
+            <select name="unidade" class="form-control" id="unidade">
+                {% for IDUndSrv, NMUndSRV in unidades %}
+                    <option value="{{ IDUndSrv }}" selected>{{ NMUndSRV }}</option>
+                {% endfor %}
+                <option selected>--- Selecione Unidade ---</option>
+            </select>
+        </div>
+        <br>
+        <div class_="form-control">
+            <label>Nome</label>
+            <input for="name_setor" name="name_setor" class="form-control" type="text" id="name_setor" maxlength="100">
+        </div>
+        <br>
+        <div class_="form-control">
+            <label>Frase 1</label>
+            <input disabled name="frase_1" class="form-control" type="text" value="{{ frase_1 }}"
+                   id="frase_1">
+        </div>
+        <br>
+
+        <div class="text-right" id="register-link">
+            <input class="btn btn-info btn-md" name="submit" type="submit" value="proximo">
+        </div>
+    </form>
+    </div>
+    </div>
+
+    </div>
+    </div>
+
+{% endblock %}

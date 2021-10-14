@@ -1,0 +1,85 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+    {% from "includes/_formhelpers.html" import render_field %}
+    <form action="" class="form" id="login-form" method="POST">
+        <h1 class="text-center text-black">SETOR</h1>
+        <h3 class="text-center text-black">Adicionar Grupos de Serviço ao Setor</h3>
+        <br>
+        <div class="form-group row">
+            <label for="GrupoServico">Grupo de Serviço</label>
+            <select name="ges_grupo" class="form-control">
+                {% for IDGrupo, NMGrupo in ges_grupos %}
+                    <option value="{{ IDGrupo }}" selected>{{ NMGrupo }}</option>
+                {% endfor %}
+                <option selected>--- Selecione Grupo de Serviço ---</option>
+            </select>
+        </div>
+        <div class="form-group row">
+            <label for="inicio-time-input" class="col-2 col-form-label">Hora Inicio</label>
+            <div class="col-10">
+                <input name="hora_inicio" class="form-control" type="time" id="hora_inicio">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="example-time-input" class="col-2 col-form-label">Hora Final</label>
+            <div class="col-10">
+                <input name="hora_final" class="form-control" type="time" id="hora_final">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="inputTipoSenha" class="col-2 col-form-label">Tipo Senha</label>
+            <div class="col-10">
+                <select name="input_tipo_senha" id="input_tipo_senha" class="form-control">
+                    <option selected>Selecione Tipo Senha...</option>
+                    <option value="A">Ambos</option>
+                    <option value="N">Normal</option>
+                    <option value="P">Preferencial</option>
+                    <option value="I">Preferencial80+</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="senha_monitor" class="col-2 col-form-label">Senha Monitor</label>
+            <div class="col-10">
+                <select name="input_exibir_senha" id="input_exibir_senha" class="form-control">
+                    <option selected>Selecione Exibir Senha Monitor...</option>
+                    <option value="A">Ambos</option>
+                    <option value="N">Normal</option>
+                    <option value="P">Preferencial</option>
+                </select>
+            </div>
+        </div>
+        <br>
+        <div class="container">
+           <div class="form-group row">
+                  <div class="col-sm-12 text-center">
+
+                     <div class="form-group col-md-4" id="cadastre-novamente">
+                    <input class="btn btn-success btn-md" name="submit" type="submit"
+                           value="Adicionar Grupo de Serviço">
+                </div>
+
+
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+    <div class="row">
+  <div class="col-12 col-md-8"></div>
+  <div class="col-6 col-md-2"> <div class="col align-self-end">
+            <form action="{{ url_for('setor_faixa') }}" class="form" id="next-form">
+                <div class="col-sm" id="register-link">
+                    <input class="btn btn-primary btn-md" name="submit" type="submit" value="informar parâmetros">
+                </div>
+            </form>
+        </div>
+  </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <h1>Adicionar Grupo</h1>
+    {% from "includes/_formhelpers.html" import render_field %}
+    <form method="POST" action="" class="was-validated">
+        <div class="form-row">
+            <div class="form-group col-md-2">
+                <label for="inputState">Grupo de Serviço</label>
+                <select id="inputState" class="form-control">
+                    <option selected>Choose...</option>
+                    <option>...</option>
+                </select>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="inputCity">Hora Inicio</label>
+                <input type="text" class="form-control" id="inputCity">
+            </div>
+
+            <div class="form-group col-md-4">
+                <label for="inputZip">Hora Final</label>
+                <input type="text" class="form-control" id="inputZip">
+            </div>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="inputZip">Tipo Senha</label>
+            <input type="text" class="form-control" id="">
+        </div>
+        </div>
+        <p><input class="btn btn-success" type="submit" value="Proximo">
+    </form>
+{% endblock %}

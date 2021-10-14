@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h1 class="text-center">Dashboard Setor</h1>
+    <hr>
+  <a class="btn btn-primary" href="/dashboard/setor/add"> Casdastro de Setor</a>
+  <hr>
+  <table class="table table-striped">
+    <tr>
+      <th>ID</th>
+      <th>Nome Setor</th>
+      <th></th>
+    </tr>
+    {% for setor in setores %}
+      <tr>
+        <td>{{setor.IDSetor}}</td>
+        <td>{{setor.NMSetor}}</td>
+        
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <h1 class="text-center">Atualizar Unidade</h1>
+    {% from "includes/_formhelpers.html" import render_field %}
+    <form method="POST" action="">
+        <div class="form-group">
+            <label>Nome da Unidade</label>
+            <input name="NMUndSRV" class="form-control" type="text" id="NMUndSRV" maxlength="50">
+        </div>
+        <br>
+        <div class="form-group">
+            <label>Endereco da Unidade</label>
+            <input name="endereco" class="form-control" type="text" id="endereco" maxlength="200">
+        </div>
+        <div class="form-group ">
+            <label>Bairro</label>
+            <input name="bairro" class="form-control" type="text" id="bairro" maxlength="100">
+        </div>
+        <div class="form-group row">
+            <div class="form-group col-md-4">
+                <label for="Estado">Estado</label>
+                <select name="estado" class="form-control" id="estado">
+                    {% for IDUf, NMUf in estados %}
+                        <option value="{{ IDUf }}" selected>{{ NMUf }}</option>
+                    {% endfor %}
+                    <option selected>--- Selecione Estado ---</option>
+                </select>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label for="Cidade">Cidade</label>
+                <select name="cidade" class="form-control" id="cidade">
+                    {% for IDCidade, NMCidade in cidades %}
+                        <option value="{{ IDCidade }}" selected>{{ NMCidade }}</option>
+                    {% endfor %}
+                    <option selected>--- Selecione Cidade ---</option>
+                </select>
+            </div>
+            <div class="form-group col-md-4 ">
+                <label>CEP</label>
+                <input name="cep" class="form-control" type="text" id="cep" maxlength="8">
+            </div>
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Nome para Impressão da Senha</label>
+            <input name="NMImpressao" class="form-control" type="text" id="NMImpressao" maxlength="25">
+            <br>
+            </div>
+            <div class="form-group">
+                <label>Número da Licença</label>
+                <input name="NumeroLicenca" class="form-control" type="text" id="NumeroLicenca" maxlength="24">
+            </div>
+        </div>
+        </div>
+        <br>
+        <div class="text-center">
+            <p><input class="btn btn-success" type="submit" value="Confirmar">
+        </div>
+        </div>
+
+    </form>
+    <script>
+        estado_select = document.getElementById('estado');
+        cidade_select = document.getElementById('cidade');
+
+        estado_select.onchange = function () {
+            estado = estado_select.value;
+            fetch('cidade/' + estado).then(function (response) {
+                response.json().then(function (data) {
+                    optionHTML = '';
+                    optionHTML += '<option value="' + '' + '">' + '--- Selecione Cidade ---' + '</option>'
+                    for (cidade of data.cidadeestado) {
+                        optionHTML += '<option value="' + cidade.IDCidade + '">' + cidade.NMCidade + '</option>'
+                    }
+                    cidade_select.innerHTML = optionHTML;
+                });
+            });
+        }
+    </script>
+{% endblock %}

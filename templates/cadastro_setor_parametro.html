@@ -1,0 +1,57 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+                    {% from "includes/_formhelpers.html" import render_field %}
+                    <form action="/setor/parametro" class="form" id="login-form" method="post">
+                        <h1 class="text-center text-black">Setor</h1>
+                        <h3 class="text-center text-black">Pârametros</h3>
+                        <br>
+                        <br>
+                        <br>
+                        <div class="form-check form-check-inline">
+                            <input name= "emissormonitor"class="form-check-input" type="checkbox" id="emissormonitor" value="1">
+                            <label class="form-check-label" for="inlineCheckbox1">Setor utiliza Emissor/Monitor de
+                                Senhas?</label>
+                        </div>
+                           <div class="form-check form-check-inline">
+                            <input name= "atendimento24horas" class="form-check-input" type="checkbox" id="atendimento24horas" value="1">
+                            <label class="form-check-label" for="inlineCheckbox1">Setor tem Atendimento em 24horas por dia?</label>
+                        </div>
+                           <div class="form-check form-check-inline">
+                            <input name= "utilizaobservacao" class="form-check-input" type="checkbox" id="utilizaobservacao" value="1">
+                            <label class="form-check-label" for="inlineCheckbox1">Utiliza Observação na senha?</label>
+                        </div>
+
+                        <div class="custom-control custom-checkbox">
+                            <input checked="checked" class="custom-control-input" disabled="disabled" type="checkbox">
+                            <label class="custom-control-label">Modelo de Monitor: Sempre o modelo [Monitor
+                                Padrão]</label>
+                        </div>
+
+                        <div class="custom-control custom-checkbox">
+                            <input checked="checked" class="custom-control-input" disabled="disabled" type="checkbox">
+                            <label class="custom-control-label">Modelo Emissor de Senha: [Emissor de Senha
+                                Padrão]</label>
+                        </div>
+
+                        <div class="custom-control custom-checkbox">
+                            <input checked="checked" class="custom-control-input" disabled="disabled" type="checkbox">
+                            <label class="custom-control-label">Alinhamento do Texto do Monitor: [Sempre
+                                JUSTIFICADO]</label></div>
+                        <br>
+                        <br>
+                      <div class="text-center">
+                            <div class="d-flex justify-content-center" id="register-link">
+                                <input class="btn btn-info btn-md" name="submit" type="submit" value="Finalizar">
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

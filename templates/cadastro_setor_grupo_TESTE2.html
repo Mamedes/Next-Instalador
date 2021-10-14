@@ -1,0 +1,99 @@
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand" href="/">NEXT</a>
+</nav>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" id="bootstrap-css" rel="stylesheet">
+
+
+<!------ Include the above in your HEAD tag ---------->
+
+<div id="grupo">
+    <div class="container">
+        <br>
+        <div class="row justify-content-center align-items-center" id="login-row">
+            <div class="col-md-6" id="login-column">
+                <div class="col-md-12" id="login-box">
+                    {% from "includes/_formhelpers.html" import render_field %}
+                    <form action="" class="form" id="login-form" method="POST">
+                        <h1 class="text-center text-black">Cadastro Grupos de Serviço</h1>
+                        <br>
+                        <div class="container">
+                            {% include 'includes/_messages.html' %}
+                            {% block body %}{% endblock %}
+                        </div>
+                        <div class="form-group">
+                            <label for="GrupoServico">Grupo de Serviço</label>
+                            <select name="ges_grupo" class="form-control">
+                                {% for IDGrupo, NMGrupo in ges_grupos %}
+                                    <option value="{{ IDGrupo }}" selected>{{ NMGrupo }}</option>
+                                {% endfor %}
+                                <option selected>--- Selecione Grupo de Serviço ---</option>
+                            </select>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inicio-time-input" class="col-2 col-form-label">Hora Inicio</label>
+                            <div class="col-10">
+                                <input name="hora_inicio" class="form-control" type="time" id="hora_inicio">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="example-time-input" class="col-2 col-form-label">Hora Final</label>
+                            <div class="col-10">
+                                <input name="hora_final" class="form-control" type="time" id="hora_final">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="inputTipoSenha" class="col-2 col-form-label">Tipo Senha</label>
+                            <div class="col-10">
+                                <select name="input_tipo_senha" id="input_tipo_senha" class="form-control">
+                                    <option selected>Selecione Tipo Senha...</option>
+                                    <option value="A">Ambos</option>
+                                    <option value="">Normal</option>
+                                    <option value="p">Preferencial</option>
+                                    <option value="i">Preferencial80+</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="senha_monitor" class="col-2 col-form-label">Senha Monitor</label>
+                            <div class="col-10">
+                                <select name="input_exibir_senha" id="input_exibir_senha" class="form-control">
+                                    <option selected>Selecione Exibir Senha Monitor...</option>
+                                    <option value="A">Ambos</option>
+                                    <option value="N">Normal</option>
+                                    <option value="P">Preferencial</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm" id="cadastre-novamente">
+                                    <input class="btn btn-primary btn-md" name="submit" type="submit"
+                                           value="Cadastrar Novamente">
+                                </div>
+                                <div class="col-sm">
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <hr>
+                <div class="row">
+                    <div class="col-md-8 offset-md-10">
+                    <form action="{{ url_for('setor_faixa') }}" class="form" id="next-form">
+                        <div class="col-sm" id="register-link">
+                            <input class="btn btn-success btn-md" name="submit" type="submit" value="proximo">
+                        </div>
+                    </form>
+                        </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<nav class="navbar fixed-bottom navbar-expand-sm navbar-dark bg-dark">
+
+</nav>
+</body>
+

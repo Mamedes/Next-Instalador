@@ -1,0 +1,50 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <h1 class="text-center">Dashboard Unidade</h1>
+    <hr>
+    <!-- <a class="btn btn-success" href="/add_article"> Add Article</a> -->
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="col-sm-4">
+                <a class="btn btn-info" href="/unidade/add"> Atualizar Unidade</a></div>
+            <div class="col-sm-3">
+
+                <a class="btn btn-primary" href="/dashboard/grupo"> Grupo de Serviço</a></div>
+            <div class="col-sm-2">
+                <a class="btn btn-primary" href="/dashboard/setor"> Setor</a></div>
+        </div>
+         <form method="post" action="/delete_bd">
+        <div class="col-sm-3"><a class="btn btn-danger" href="/delete_bd"> Apagar Base de Dados</a></div>
+         </form>
+         <form method="post" action="/gerar_bd">
+        <div class="col-sm-2"><a class="btn btn-success" href="/gerar_bd"> Gerar Base de Dados</a></div>
+         </form>
+    </div>
+    <hr>
+    <table class="table table-striped">
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Endereco</th>
+            <th>Número da Licença</th>
+            <th></th>
+        </tr>
+        {% for unidade in unidades %}
+            <tr>
+                <td>{{ unidade.IDUndSrv }}</td>
+                <td>{{ unidade.NMUndSRV }}</td>
+                <td>{{ unidade.Endereco }}</td>
+                <td>{{ unidade.NumeroLicenca }}</td>
+                <td><a href="edit_article/{{ unidade.IDUndSrv }}" class="btn btn-default pull-right">Edit</a></td>
+                <td>
+                    <form action="{{ url_for('delete_unidade', id=unidade.IDUndSrv) }}" method="post">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="submit" value="Delete" class="btn btn-danger">
+                    </form>
+                </td>
+
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

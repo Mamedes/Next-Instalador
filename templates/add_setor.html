@@ -1,0 +1,147 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h1>Cadastro Setor</h1>
+  {% from "includes/_formhelpers.html" import render_field %}
+  <form method="POST" action=""class="was-validated">
+    <div class="form-group">
+     <br>
+    </div>
+    <h1>Adicionar Grupo</h1>
+      <button class="btn btn-primary" id="AddGrupoService">Adicionar Grupo</button>
+    <form class="form" action="reflect.php">
+      <table class="table" id="myTable">
+        <thead>
+          <tr>
+            <th>Grupo de Serviço</th>
+            <th>Hora Inicio</th>
+            <th>Hora Final</th>
+            <th>Tipo Senha</th>
+            <th>Exibir Monitor de Senha</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr id="template" style="display: none">
+            <td>
+                <select class="form-control">
+                  <option selected>Selecione Grupo de Serviço</option>
+                  <option value="1">Grupo 1</option>
+                  <option value="2">Grupo 2</option>
+                  <option value="3">Grupo 3</option>
+                </select>
+            </td>
+            <td><input type="time" class="form-control" placeholder="Hora Inicio" name="hora inicio[]" /></td>
+            <td><input type="time" class="form-control" placeholder="Hora Final" name="Hora Final[]" /></td>
+            <td><input type="text" class="form-control" placeholder="Tipo Senha" name="Tipo Senha[]" /></td>
+            <td><input type="text" class="form-control" placeholder="Exibir Monitor" name="Exibir Monitor[]" /></td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+<div>
+<h1>Faixa de Senha</h1>
+<div>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label>Tipo de Senha</label>
+      <input type="text "value="Preferencial +80" class="form-control" disabled>
+      </select>
+    </div>
+
+  <div class="form-group col-md-2">
+    <label>Faixa Inicio</label>
+    <input type="time" class="form-control" >
+    </div>
+    <div class="form-group col-md-2">
+      <label>Faixa Final</label>
+      <input type="time" class="form-control">
+    </div>
+  </div>
+       <div class="form-group col-md-2">
+      <label>Sigla</label>
+      <input type="text" class="form-control" >
+    </div>
+   </div>
+    <div>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label>Tipo de Senha</label>
+      <input type="text "value="Preferencial" class="form-control" disabled>
+    </div>
+
+  <div class="form-group col-md-2">
+    <label>Faixa Inicio</label>
+    <input type="time" class="form-control" >
+    </div>
+    <div class="form-group col-md-2">
+      <label>Faixa Final</label>
+      <input type="time" class="form-control" >
+    </div>
+  </div>
+       <div class="form-group col-md-2">
+      <label>Sigla</label>
+      <input type="text" class="form-control" >
+    </div>
+   </div>
+    <div>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+     <label>Tipo de Senha</label>
+      <input type="text "value="Normal" class="form-control" disabled>
+    </div>
+
+  <div class="form-group col-md-2">
+    <label>Faixa Inicio</label>
+    <input type="time" class="form-control" >
+    </div>
+    <div class="form-group col-md-2">
+      <label>Faixa Final</label>
+      <input type="time" class="form-control" >
+    </div>
+  </div>
+       <div class="form-group col-md-2">
+      <label>Sigla</label>
+      <input type="text" class="form-control" >
+    </div>
+    </div>
+  </div>
+      </div>
+<div class="container">
+    <h1>Parâmetros</h1>
+    <div class="custom-control custom-checkbox">
+    <input type="checkbox" class="custom-control-input" >
+    <label class="custom-control-label" >Setor utiliza Emissor/Monitor de Senhas?</label>
+      </div>
+
+     <div class="custom-control custom-checkbox">
+    <input type="checkbox" class="custom-control-input" >
+    <label class="custom-control-label" >Setor tem Atendimento em 24horas por dia?</label>
+      </div>
+     <div class="custom-control custom-checkbox">
+    <input type="checkbox" class="custom-control-input" >
+    <label class="custom-control-label" >Utiliza Observação na senha?</label>
+      </div>
+
+    <div class="custom-control custom-checkbox">
+    <input type="checkbox" class="custom-control-input" disabled="disabled" checked="checked">
+    <label class="custom-control-label" >Modelo de Monitor: Sempre o modelo [Monitor Padrão]</label>
+      </div>
+
+     <div class="custom-control custom-checkbox">
+    <input type="checkbox" class="custom-control-input" disabled="disabled" checked="checked" >
+    <label class="custom-control-label" >Modelo Emissor de Senha: [Emissor de Senha Padrão]</label>
+      </div>
+
+     <div class="custom-control custom-checkbox">
+    <input type="checkbox" class="custom-control-input" disabled="disabled" checked="checked" >
+    <label class="custom-control-label" >Alinhamento do Texto do Monitor: [Sempre JUSTIFICADO]</label>
+      </div>
+        <td>
+         <p><input class="btn btn-success" type="submit" value="Enviar">
+        <td/>
+        </div>
+      </div>
+  </form>
+
+
+{% endblock %}

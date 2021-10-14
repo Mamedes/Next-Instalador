@@ -1,0 +1,81 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+    {% from "includes/_formhelpers.html" import render_field %}
+    <form action="/setor/faixa" class="form" id="login-form" method="post">
+        <h1 class="text-center text-black">Setor</h1>
+        <h3 class="text-center text-black">Faixa Senha</h3>
+        <br>
+
+        <table class="table table-borderless">
+            <thead>
+            <tr>
+                <th scope="col">Tipo de Senha</th>
+                <th scope="col">Faixa Inicio</th>
+                <th scope="col">Faixa Final</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th>
+                    <input class="form-control" disabled type="text " value="Preferencial +80">
+                    </select>
+                </th>
+                <th>
+                    <input name="pref80_faixa_inicio" class="form-control" type="text"
+                           id="pref80_faixa_inicio" maxlength="6">
+                </th>
+                <th>
+                    <input name="pref80_faixa_final" class="form-control" type="text"
+                           id="pref80_faixa_final" maxlength="6">
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <input class="form-control" disabled type="text " value="Preferencial">
+                    </select>
+                </th>
+                <th>
+                    <input name="pref_faixa_inicio" class="form-control" type="text"
+                           id="pref_faixa_inicio"maxlength="6">
+                </th>
+                <th>
+                    <input name="pref_faixa_final" class="form-control" type="text"
+                           id="pref_faixa_final"maxlength="6">
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <input class="form-control" disabled type="text " value="Normal">
+                    </select>
+                </th>
+                <th>
+                    <input name="normal_faixa_inicio" class="form-control" type="text"
+                           id="normal_faixa_inicio"maxlength="6">
+                </th>
+                <th>
+                    <input name="normal_faixa_final" class="form-control" type="text"
+                           id="normal_faixa_final"maxlength="6">
+                </th>
+            </tr>
+            </tbody>
+        </table>
+        <hr>
+        <div class="container">
+            <div class="col-sm">
+                <br>
+            </div>
+            <div class="text-right" id="register-link">
+                <input class="btn btn-primary btn-md" name="submit" type="submit" value="proximo">
+            </div>
+        </div>
+    </form>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+{% endblock %}

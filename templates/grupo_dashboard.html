@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h1 class="text-center">Dashboard Grupo de Serviço</h1>
+    <hr>
+
+   <a class="btn btn-primary" href="/grupo/add"> Cadastro de Grupo de Serviço</a>
+  <hr>
+  <table class="table table-striped">
+    <tr>
+      <th>ID</th>
+      <th>Nome Grupo de Serviço</th>
+      <th>Apresentação no Monitor</th>
+      <th>Vocalização</th>
+      <th></th>
+    </tr>
+    {% for grupo in grupos %}
+      <tr>
+        <td>{{grupo.IDGrupo}}</td>
+        <td>{{grupo.NMGrupo}}</td>
+        <td>{{grupo.NMApresentacao}}</td>
+        <td>{{grupo.TextoVocalizar}}</td>
+
+        <td>
+          <form action="{{url_for('delete_grupo', id=grupo.IDGrupo)}}" method="post">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="Delete" class="btn btn-danger">
+          </form>
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
